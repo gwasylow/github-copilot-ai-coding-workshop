@@ -9,7 +9,8 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 
 ### **What you will learn:**  
 - How GitHub Copilot works under the hood  
-- Setting up GitHub Copilot in Visual Studio Code and other IDEs  
+- Setting up GitHub Copilot in Visual Studio Code and other IDEs
+- Explanation how GitHub Copilot works (technically under the hood)
 - Generating code from comments and prompts  
 - Completing functions and suggesting boilerplate  
 - Using Copilot for test generation and documentation  
@@ -24,7 +25,8 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 3. **Hands-on coding exercises**  
 4. **Advanced prompts: improving suggestion quality**  
 5. **Copilot in team workflows (PRs, pair programming)**  
-6. **Q&A and interactive discussion**  
+6. **Q&A and interactive discussion**
+7. **Dedicated presentation avaialble during live shows & conferences
 
 ---
 
