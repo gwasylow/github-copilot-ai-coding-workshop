@@ -53,4 +53,5 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 
 ---
 
-Would you like me to help you prepare slides or sample workshop exercises as well? 😊
+Cheers,
+Greg
