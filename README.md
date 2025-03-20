@@ -1,4 +1,4 @@
-# GitHub CoPilot AI Coding Workshop
+# GitHub CoPilot AI coding workshop
 
 ### **GitHub Copilot AI Coding Workshop**  
 **Discover the future of software development with AI assistance.**  
@@ -38,10 +38,11 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 ---
 
 ### **Who should attend:**  
-- Software developers (junior to senior level)  
+- Software developers (junior/senior level)  
 - Team leads and architects exploring AI augmentation  
 - DevOps and CI/CD professionals  
-- Engineering managers looking to improve team efficiency  
+- Engineering managers looking to improve team efficiency
+- Dwarfs and sports stars
 
 ---
 
@@ -52,4 +53,4 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 Cheers,
 Greg
 
-PS: Even this content has been AI generated, that's the future!
+> PS: Even this content has been AI generated, that's the future!
