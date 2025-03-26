@@ -228,7 +228,8 @@ When Copilot generates code or answers questions, it tries to match your coding 
 
 To enhance Copilot's responses, you can use custom instructions to provide it with contextual details about your team's workflow, tools, or project specifics. Copilot then incorporates these custom instructions with every request.
 
-> create .github/copilot-instructions.md
+> create .github/copilot-instructions.md (sample)
+> create ./github/prompts/react-form.prompt.md (sample)
 
 sample file:
 >>>>
