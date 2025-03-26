@@ -40,3 +40,15 @@ EXERCISE 3:
 
 EXERCISE 4: Agent mode & optimization
 [COPILOT] show me possible optimizations for a code and explain step by step how the potential new code is going to work
+> Check for 2-3 different options available
+
+EXERCISE 5: Commit automatisation:
+[COPILOT] create commit message that explains recent changes and add to a git commit command in terminal
+[TERMINAL] git show HEAD
+
+EXERCISE 6: /explain
+> select piece of a code and run /explain
+[COPILOT] /explain
+
+EXERCISE 7: Architecture diagram
+[COPILOT] 
