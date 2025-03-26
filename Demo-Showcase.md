@@ -1,6 +1,7 @@
-Demo showcase:
+# Demo showcase:
 
-1. Make a Sound App:
+
+## 1. Make a Sound App:
 EXERCISE 1:
 > Open the folder
 > Make sure there's no possible to run an app:
@@ -78,12 +79,10 @@ EXERCISE 10: Security
 > View security report, we can extract this information to PDF/README.MD
 
 
-
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
 
-
-2. DotNet Testing app:
+## 2. DotNet Testing app:
 > Explain the solution
 EXERCISE 1:
 [COPILOT] explain the solution, technologies and possible technical debt, if any. 
@@ -132,13 +131,10 @@ EXERCISE 10:
 [COPILOT] Add comments to the most important part of a code, make sure header is fulfilled with author, data, class usage and company info
 
 
-
-
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
 
-
-2. DOCKER sample
+## 3. DOCKER sample
 > Go to ./006-DOCKER
 > Create new dotnet webapp
 dotnet new mvc -n MyWebApp
@@ -179,13 +175,10 @@ EXERCISE 8: /feedback - provide feedback to the Team test
 [COPILOT] feedback 
 
 
-
-
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
 
-
-3. Immersive mode:
+## 4. Immersive mode:
 > go to github.com
 > open your demo repositiory
 > press copilot shotcut and choose IMMERSIVE MODE, and ask:
@@ -197,12 +190,10 @@ EXERCISE 8: /feedback - provide feedback to the Team test
 > The same questions we may ask using COPILOT addon.
 
 
-
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
 
-
-4. CoPilot Vision (experimentaty):
+## 5. CoPilot Vision (experimentaty):
 > go to linkedin / any other page or:
 > Drag and drop images from your OS or from the Explorer view
 > Paste an image from your clipboard
@@ -216,12 +207,39 @@ A warning is shown if the selected model currently does not have the capability 
 [COPILOT] create xhtml and css with tailwind based on the right side of the screenshot
 
 
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+## 6. Custom Instructions:
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+ 
+ ## 7. GitHub Codespaces:
+
+
+  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+ 
+ ## 8. GitHub Dependabot & Platform overview & security scanning:
+
 
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
 
+## Useful prompts:
+[COPILOT] Refactor this code for better readability
+[COPILOT] Suggest performance optimizations for this code
+[COPILOT] Suggest how to break this monolithic function into smaller functions
+[COPILOT] Generate SQL query for this data structure
+[COPILOT] Explain this error message from the terminal
+[COPILOT] What design pattern is used here? Explain
+[COPILOT] Can this code be parallelized? Suggest how.
+[COPILOT] Generate CI/CD pipeline YAML for GitHub Actions for this project
+[COPILOT] Rewrite entire code base to a single line in go languange
+[COPILOT] Write onboarding instructions for this project
 
-5. Custom Instructions:
 
 
 
