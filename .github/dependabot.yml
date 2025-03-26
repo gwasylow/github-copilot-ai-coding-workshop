@@ -1,0 +1,14 @@
+# version: 2
+# updates:
+#   - package-ecosystem: "npm" # Options: npm, pip, maven, docker, etc.
+#     directory: "/" # Location of package manifests
+#     schedule:
+#       interval: "weekly" # Options: daily, weekly, monthly
+
+#     # Optional configurations:
+#     # open-pull-requests-limit: 10
+#     # target-branch: "main"
+#     # labels:
+#     #   - "dependencies"
+#     # assignees:
+#     #   - "username"
