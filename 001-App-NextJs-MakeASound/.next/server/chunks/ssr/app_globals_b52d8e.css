@@ -359,6 +359,10 @@ img, video {
   min-height: 100vh;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .list-inside {
   list-style-position: inside;
 }

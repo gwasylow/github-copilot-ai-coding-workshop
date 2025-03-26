@@ -1,5 +1,7 @@
 "use client";
-import { useState, useRef, CSSProperties } from "react";
+import { useState, useRef, useCallback, useEffect, CSSProperties } from "react";
+
+//This component has been created for further optimizations using COPILOT
 
 interface Track {
   id: string;
@@ -16,34 +18,75 @@ const TRACKS: Track[] = [
 const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const playTrack = (filename: string) => {
+  // Handle audio events
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setCurrentTrack(null);
+    };
+
+    const handleError = () => {
+      setIsPlaying(false);
+      setIsLoading(false);
+      console.error('Error playing audio');
+    };
+
+    const handleLoadStart = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
+
+    audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
+    audio.addEventListener('loadstart', handleLoadStart);
+    audio.addEventListener('canplay', handleCanPlay);
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
+      audio.removeEventListener('loadstart', handleLoadStart);
+      audio.removeEventListener('canplay', handleCanPlay);
+    };
+  }, []);
+
+  const playTrack = useCallback(async (filename: string) => {
     if (!audioRef.current) return;
 
     const audio = audioRef.current;
     const isSameTrack = currentTrack === filename;
 
-    if (isSameTrack) {
-      if (isPlaying) {
-        audio.pause();
+    try {
+      if (isSameTrack) {
+        if (isPlaying) {
+          audio.pause();
+          setIsPlaying(false);
+        } else {
+          await audio.play();
+          setIsPlaying(true);
+        }
       } else {
-        audio.play();
+        audio.src = `/music/${filename}`;
+        await audio.play();
+        setCurrentTrack(filename);
+        setIsPlaying(true);
       }
-      setIsPlaying(!isPlaying);
-    } else {
-      audio.src = `/music/${filename}`;
-      audio.play();
-      setCurrentTrack(filename);
-      setIsPlaying(true);
+    } catch (error) {
+      console.error('Playback failed:', error);
+      setIsPlaying(false);
     }
-  };
+  }, [currentTrack, isPlaying]);
 
-  const getButtonLabel = (track: Track) => {
-    return currentTrack === track.filename && isPlaying
-      ? "Pause"
-      : track.label;
-  };
+  const getButtonLabel = useCallback((track: Track) => {
+    if (currentTrack === track.filename) {
+      if (isLoading) return "Loading...";
+      return isPlaying ? "Pause" : "Play";
+    }
+    return track.label;
+  }, [currentTrack, isPlaying, isLoading]);
 
   return (
     <div style={styles.container}>
@@ -52,9 +95,11 @@ const AudioPlayer = () => {
         <button
           key={track.id}
           onClick={() => playTrack(track.filename)}
-          style={styles.button}
-          onMouseOver={(e) => e.currentTarget.style.backgroundColor = "#0051a8"}
-          onMouseOut={(e) => e.currentTarget.style.backgroundColor = "#0070f3"}
+          style={{
+            ...styles.button,
+            opacity: isLoading && currentTrack === track.filename ? 0.7 : 1,
+          }}
+          disabled={isLoading && currentTrack === track.filename}
         >
           {getButtonLabel(track)}
         </button>

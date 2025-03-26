@@ -17,9 +17,13 @@ export default function Home() {
           <li className="mb-2">Make a sound demo app</li>
         </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          I made this change to get a better understanding of how to use the Next.js framework.
+        <div className="flex justify-center w-full">
           <AudioPlayer />
+        </div>
+
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          I made this change to get a better understanding of how to use the
+          Next.js framework.
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
