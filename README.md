@@ -5,14 +5,14 @@
 
 In this hands-on workshop, participants will learn how to integrate GitHub Copilot — the AI-powered code completion tool — into their daily development workflows. We will explore how Copilot can boost productivity, improve code quality, and accelerate delivery by acting as a virtual coding partner.  
 
-You main train, alternatively conduct an exercises by following Demo-Showcase.md instructions.
+You can participate in training or conduct exercises by following the Demo-Showcase.md instructions.
 
 ---
 
 ### **What you will learn:**  
 - How GitHub Copilot works under the hood  
 - Setting up GitHub Copilot in Visual Studio Code and other IDEs
-- Explanation how GitHub Copilot works (technically, under the hood)
+- Understanding GitHub Copilot's technical architecture
 - Generating code from comments and prompts  
 - Completing functions and suggesting boilerplate  
 - Using Copilot for test generation and documentation  
@@ -28,7 +28,7 @@ You main train, alternatively conduct an exercises by following Demo-Showcase.md
 4. **Advanced prompts: improving suggestion quality**  
 5. **Copilot in team workflows (PRs, pair programming)**  
 6. **Q&A and interactive discussion**
-7. **Dedicated presentation avaialble during live shows & conferences**
+7. **Dedicated presentation available during live shows & conferences**
 
 ---
 
@@ -46,7 +46,7 @@ You main train, alternatively conduct an exercises by following Demo-Showcase.md
 - Team leads and architects exploring AI augmentation  
 - DevOps and CI/CD professionals  
 - Engineering managers looking to improve team efficiency
-- Dwarfs and sports stars
+- Software developers of all experience levels, dwarfs and sports stars
 
 ---
 
@@ -57,4 +57,5 @@ You main train, alternatively conduct an exercises by following Demo-Showcase.md
 Cheers,
 Greg
 
-> PS: Even this content has been AI generated, that's the future!
+> PS: Even this content has been AI-generated - that's the future!
+
