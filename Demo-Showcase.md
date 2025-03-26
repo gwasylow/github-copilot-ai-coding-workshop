@@ -124,3 +124,53 @@ EXERCISE 8: Architecture diagram creation
 [COPILOT] create architecture diagram for @workspace
 > Go to https://mermaidviewer.com/editor/9O8ZN2Ilyv9TZtvSDpBmZ and visalize the graph TD:
 > copy & paste, voila!
+
+EXERCISE 9: /simplify usage
+[COPILOT] /simplify
+
+EXERCISE 10:
+[COPILOT] Add comments to the most important part of a code, make sure header is fulfilled with author, data, class usage and company info
+
+
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+2. DOCKER sample
+> Go to ./006-DOCKER
+> Create new dotnet webapp
+dotnet new mvc -n MyWebApp
+
+EXERCISE 1: DOCKER
+[COPILOT] create DOCKER file for the application, make sure application is able to be deployed as Microsoft Azure Web Application, keep the secrets save using Azure Key Vault
+> insert new DOCKERFILE
+[COPILOT] /optimize for docker
+
+EXERCISE 2: MS Azure DevOps pipeline
+> Check for security
+[COPILOT] create Azue MS DevOps pipeline for application deployment to Azure Web Application service
+> save the file and review
+[COPILOT] /explain
+
+EXERCISE 3: GitHub Actions
+[COPILOT] optimize pipeline for github actions, make the application secured
+> save the file and review
+[COPILOT] /explain
+
+EXERCISE 4: Coding
+[COPILOT] /generate transient service for Logger
+builder.Services.AddTransient<ILogger, Logger>();
+> Code won't work yet
+[COPILOT] /fix
+builder.Services.AddTransient<ILogger<Program>, Logger<Program>>();
+
+EXERCISE 5: Documentation for a code
+[COPILOT] /doc
+
+EXERCISE 6: MS DevOps WIKI Doucmentation generation
+[COPILOT] create MS DevOps wiki page with @file techical documenation
+
+EXERCISE 7: SNAKE GAME in /Home View:
+[COPILOT] generate simple snake game using simple js and canvas with no spectacular css and modern libraries
