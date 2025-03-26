@@ -73,6 +73,19 @@ act like engineer , add:
 
 EXERCISE 9: Context references:
 [COPILOT] @workspace where is the database connection configured?
+[COPILOT] Where is the database connection string used in #codebase?
+
+Keep remember:
+#codebase:  Refers to the entire codebase of the current project.
+Includes all files and folders in the workspace.
+Used to provide context about the entire project when asking questions or generating code.
+Example: "Where is the database connection string used in #codebase?"
+
+@workspace: Refers to the workspace as a concept, typically the root folder of the project.
+Focuses on the structure and configuration of the workspace, such as dependencies, scripts, or settings.
+Often used for commands or tasks that involve the workspace setup or structure.
+Example: "How to run the app from @workspace using pnpm?"
+In summary, #codebase is more about the content of the project, while @workspace is about the project environment and setup.
 
 EXERCISE 10: Security
 [COPILOT] Check security level of application, do a review of all OWASP 10 items and validate, preapre final report with PASS / FAIL status. Add scoring and prepare a summary.
@@ -211,18 +224,70 @@ A warning is shown if the selected model currently does not have the capability 
 
 
 ## 6. Custom Instructions:
+When Copilot generates code or answers questions, it tries to match your coding practices and preferences such as which libraries you use or how you name your variables. However, it might not always have enough context to do this effectively. For example, if you work with a specific framework version, you need to provide additional context in your prompts.
+
+To enhance Copilot's responses, you can use custom instructions to provide it with contextual details about your team's workflow, tools, or project specifics. Copilot then incorporates these custom instructions with every request.
+
+> create .github/copilot-instructions.md (sample)
+> create ./github/prompts/react-form.prompt.md (sample)
+
+sample file:
+>>>>
+# Custom instructions for Copilot
+
+## Project context
+This project is a web application built with React and Node.js.
+
+## Indentation
+We use tabs, not spaces.
+
+## Coding style
+Use camelCase for variable names and prefer arrow functions over traditional function expressions.
+
+## Testing
+We use Jest for unit testing and Playwright for end-to-end testing.
+<<<
+
+
+
+FOR SECURITY:
+## Security standards
+When generating API code, please follow these security practices:
+
+1. Authentication & Authorization
+    - Always include authentication middleware
+    - Implement role-based access control
+    - Use JWT tokens with proper expiration
+
+2. Input Validation
+    - Validate all request parameters
+    - Sanitize user inputs
+    - Use parameterized queries for database operations
+
+3. Rate Limiting
+    - Implement rate limiting middleware
+    - Add request throttling
+    - Set appropriate limits based on endpoint sensitivity
+
+4. Security Monitoring
+    - Include error logging setup
+    - Add audit trails for sensitive operations
+    - Include security event monitoring code
+
+Please ensure all generated code follows OWASP security best practices.
+
 
 
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
  
- ## 7. GitHub Codespaces:
+## 7. GitHub Codespaces:
 
 
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
  
- ## 8. GitHub Dependabot & Platform overview & security scanning:
+## 8. GitHub Dependabot & Platform overview & security scanning:
 
 
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
@@ -240,6 +305,10 @@ A warning is shown if the selected model currently does not have the capability 
 [COPILOT] Rewrite entire code base to a single line in go languange
 [COPILOT] Write onboarding instructions for this project
 
+Use prompt engineering:
+Generate a Calculator class.
+Add methods for addition, subtraction, multiplication, division, and factorial.
+Don't use any external libraries and don't use recursion.
 
 
 
