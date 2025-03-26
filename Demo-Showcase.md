@@ -308,7 +308,7 @@ Show & explain:
 - Repository Roles
 - Repository: >> General >> Rulesets
 - Codespaces
-- Copilot:    >> Access >> Policies >> Models >> Content Exclusion!
+- (!!) Copilot:    >> Access >> Policies >> Models >> Content Exclusion!
 - Actions
 - Packages
 - Advanced Security: >> Configurarions >> Global Settings
