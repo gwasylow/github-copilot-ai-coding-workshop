@@ -50,5 +50,25 @@ EXERCISE 6: /explain
 > select piece of a code and run /explain
 [COPILOT] /explain
 
-EXERCISE 7: Architecture diagram
-[COPILOT] 
+EXERCISE 7: Architecture diagram creation
+[COPILOT] create architecture diagram for @workspace
+> Go to https://mermaidviewer.com/editor/9O8ZN2Ilyv9TZtvSDpBmZ and visalize the graph TD:
+> copy & paste, voila!
+
+EXERCISE 8: Documentation
+[COPILOT] create github technical documentation for the project, use:
+
+act like business analyst, add:
+- Business information about application usage (keep it a short business language)
+
+act like engineer , add:
+- Technical summary
+- Technical explanation of an application
+- Possible new features for further implementation
+
+[COPILOT] add this documentation as a part of README.MD
+> READ ME visualization: https://markdownlivepreview.com/
+> copy & paste, voila!
+
+EXERCISE 9: Context references:
+[COPILOT] @workspace where is the database connection configured?
