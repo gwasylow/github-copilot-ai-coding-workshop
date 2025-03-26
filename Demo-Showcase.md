@@ -282,12 +282,46 @@ Please ensure all generated code follows OWASP security best practices.
 
  
 ## 7. GitHub Codespaces:
+Virtualised environment to host:
+- Rapid code prototyping without local configuration.
+- Working on different devices without the need for environment synchronization.
+- Team collaboration in a unified development environment.
+- Testing and debugging code with different dependency versions without affecting the local system.
 
+URL: https://github.com/gwasylow/github-copilot-ai-coding-workshop
+> change from .com to .dev
 
   x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
  
 ## 8. GitHub Dependabot & Platform overview & security scanning:
+
+Platform:
+URL: https://github.com/gwasylow/github-copilot-ai-coding-workshop
+
+Show & explain:
+> Organization: https://github.com/summ-it-eu
+> Overview / Repos / Projects (& Templates) / Packages (private & public packages hosting) / Teams / People / Insights / Settings
+
+> Settings:
+- Billing & Plans (global)
+- Repository Roles
+- Repository: >> General >> Rulesets
+- Codespaces
+- Copilot:    >> Access >> Policies >> Models >> Content Exclusion!
+- Actions
+- Packages
+- Advanced Security: >> Configurarions >> Global Settings
+- Secrets and Variables:  >> Actions >> Codespaces >> Dependabot >> Private Registers (preview)
+- Logs
+
+
+Dependabot:
+./github/dependabot.yml
+./github/workflows/auto-merge.yml
+
+!! Make sure Dependabot is enabled in your GitHub Settings!
+GitHub Dependabot is a powerful tool for managing dependencies and code security. With automatic pull requests and security vulnerability alerts, it helps keep the project up to date and secure.
 
 
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
