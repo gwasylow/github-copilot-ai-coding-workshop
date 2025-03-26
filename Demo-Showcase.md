@@ -175,6 +175,9 @@ EXERCISE 6: MS DevOps WIKI Doucmentation generation
 EXERCISE 7: SNAKE GAME in /Home View:
 [COPILOT] generate simple snake game using simple js and canvas with no spectacular css and modern libraries
 
+EXERCISE 8: /feedback - provide feedback to the Team test
+[COPILOT] feedback 
+
 
 
 
@@ -192,3 +195,58 @@ EXERCISE 7: SNAKE GAME in /Home View:
 > As en extention:
 [COPILOT] give me the top 3 names of javascrpt libraries
 > The same questions we may ask using COPILOT addon.
+
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+4. CoPilot Vision (experimentaty):
+> go to linkedin / any other page or:
+> Drag and drop images from your OS or from the Explorer view
+> Paste an image from your clipboard
+> Attach a screenshot of the VS Code window (select the paperclip 📎 button > Screenshot Window)
+
+A warning is shown if the selected model currently does not have the capability to handle the file type. The only supported model at the moment will be GPT 4o, but support for image attachments with Claude 3.5 Sonnet and Gemini 2.0 Flash will be rolling out soon as well. Currently, the supported image types are JPEG/JPG, PNG, GIF, and WEBP.
+
+!!! (select the paperclip 📎 button > Screenshot Window)
+[COPILOT] explain what's visible on the screenshot
+> we have an answer
+[COPILOT] create xhtml and css with tailwind based on the right side of the screenshot
+
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+5. Custom Instructions:
+
+
+
+
+x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+Extras:
+
+https://code.visualstudio.com/docs/copilot/copilot-vscode-features
+
+
+Chat variables
+Use chat variables in your chat prompt to reference context that is relevant to your question.
+
+Chat variable   Description
+#changes	    The list of source control changes.
+#codebase	    Add relevant workspace content as context to your prompt.
+#editor	        Add the visible contents of the active editor as context for your prompt.
+#file	        Open a Quick Pick to select a file from your workspace and add it as context for your prompt.
+#<filename>	    Type #, followed by a filename, to get filename suggestions for workspace files and attach as context.
+#folder	        Type #folder:, followed by a folder name to select a folder from your workspace and add it as context for your prompt. Adding a folder adds all files within it as context.
+#problems	    dd workspace issues and problems from the Problems panel as context. Useful while fixing code or debugging.
+#selection	    Add the current editor selection as context to your prompt.
+#sym	        Open a Quick Pick to select a symbol from your workspace and add it as context for your prompt.
+#<symbol>	    Type #, followed by a symbol name, to get symbol suggestions for workspace files and attach as context.
+#terminalSelection	    Add the current terminal selection as context to your chat prompt.
+#terminalLastCommand    Add the last run terminal command as context to your chat prompt.
+#testFailure    Add test failure information as context. Useful when running and diagnosing tests.
+#VSCodeAPI	    Add the VS Code API as context to your prompt to ask questions related to VS Code extension development.
