@@ -249,6 +249,34 @@ We use Jest for unit testing and Playwright for end-to-end testing.
 
 
 
+FOR SECURITY:
+## Security standards
+When generating API code, please follow these security practices:
+
+1. Authentication & Authorization
+    - Always include authentication middleware
+    - Implement role-based access control
+    - Use JWT tokens with proper expiration
+
+2. Input Validation
+    - Validate all request parameters
+    - Sanitize user inputs
+    - Use parameterized queries for database operations
+
+3. Rate Limiting
+    - Implement rate limiting middleware
+    - Add request throttling
+    - Set appropriate limits based on endpoint sensitivity
+
+4. Security Monitoring
+    - Include error logging setup
+    - Add audit trails for sensitive operations
+    - Include security event monitoring code
+
+Please ensure all generated code follows OWASP security best practices.
+
+
+
  x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 
  
@@ -276,6 +304,10 @@ We use Jest for unit testing and Playwright for end-to-end testing.
 [COPILOT] Rewrite entire code base to a single line in go languange
 [COPILOT] Write onboarding instructions for this project
 
+Use prompt engineering:
+Generate a Calculator class.
+Add methods for addition, subtraction, multiplication, division, and factorial.
+Don't use any external libraries and don't use recursion.
 
 
 
