@@ -225,6 +225,21 @@ A warning is shown if the selected model currently does not have the capability 
 
 
 
+6. Useful prompts:
+[COPILOT] Refactor this code for better readability
+[COPILOT] Suggest performance optimizations for this code
+[COPILOT] Suggest how to break this monolithic function into smaller functions
+[COPILOT] Generate SQL query for this data structure
+[COPILOT] Explain this error message from the terminal
+[COPILOT] What design pattern is used here? Explain
+[COPILOT] Can this code be parallelized? Suggest how.
+[COPILOT] Generate CI/CD pipeline YAML for GitHub Actions for this project
+[COPILOT] Rewrite entire code base to a single line in go languange
+[COPILOT] Write onboarding instructions for this project
+
+
+
+
 
 x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
 Extras:
