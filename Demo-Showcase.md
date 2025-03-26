@@ -225,6 +225,12 @@ A warning is shown if the selected model currently does not have the capability 
 
 
 
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+
 6. Useful prompts:
 [COPILOT] Refactor this code for better readability
 [COPILOT] Suggest performance optimizations for this code
