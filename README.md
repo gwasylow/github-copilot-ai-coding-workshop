@@ -5,6 +5,8 @@
 
 In this hands-on workshop, participants will learn how to integrate GitHub Copilot — the AI-powered code completion tool — into their daily development workflows. We will explore how Copilot can boost productivity, improve code quality, and accelerate delivery by acting as a virtual coding partner.  
 
+You main train, alternatively conduct an exercises by following Demo-Showcase.md instructions.
+
 ---
 
 ### **What you will learn:**  
@@ -26,7 +28,7 @@ In this hands-on workshop, participants will learn how to integrate GitHub Copil
 4. **Advanced prompts: improving suggestion quality**  
 5. **Copilot in team workflows (PRs, pair programming)**  
 6. **Q&A and interactive discussion**
-7. **Dedicated presentation avaialble during live shows & conferences
+7. **Dedicated presentation avaialble during live shows & conferences**
 
 ---
 

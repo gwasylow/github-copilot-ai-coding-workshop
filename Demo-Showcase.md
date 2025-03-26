@@ -174,3 +174,21 @@ EXERCISE 6: MS DevOps WIKI Doucmentation generation
 
 EXERCISE 7: SNAKE GAME in /Home View:
 [COPILOT] generate simple snake game using simple js and canvas with no spectacular css and modern libraries
+
+
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+3. Immersive mode:
+> go to github.com
+> open your demo repositiory
+> press copilot shotcut and choose IMMERSIVE MODE, and ask:
+[COPILOT] walk through the complete process of creating, submitting, and managing pull requests on GitHub, from forking to merging.
+> Alternatively:
+[COPILOT] explain modern javascript libraries, benefits and potential risks to be considered
+> As en extention:
+[COPILOT] give me the top 3 names of javascrpt libraries
+> The same questions we may ask using COPILOT addon.
