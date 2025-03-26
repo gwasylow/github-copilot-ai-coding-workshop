@@ -8,7 +8,7 @@ EXERCISE 1:
 [x] explain the code of an /app, bref review (page.tsx / layout.tsx / global.css ./lib/audioplayer.tsx)
 > run terminal with npm / pnpm dev, display its not working correctly
 
-[Copilot] How to run app from @workspace using pnpm? I got an error: sh: next: command not found  ELIFECYCLE  Command failed.  WARN  Local package.json exists, but node_modules missing, did you mean to install?
+[COPILOT] How to run app from @workspace using pnpm? I got an error: sh: next: command not found  ELIFECYCLE  Command failed.  WARN  Local package.json exists, but node_modules missing, did you mean to install?
 > Execute necessary commands in CoPilot:
 - Ensure pnpm is installed: Verify that pnpm is installed globally by running pnpm --version. If not, install it using npm install -g pnpm.
 - Install dependencies: Run pnpm install in the root of your workspace to install all dependencies.
@@ -72,3 +72,55 @@ act like engineer , add:
 
 EXERCISE 9: Context references:
 [COPILOT] @workspace where is the database connection configured?
+
+EXERCISE 10: Security
+[COPILOT] Check security level of application, do a review of all OWASP 10 items and validate, preapre final report with PASS / FAIL status. Add scoring and prepare a summary.
+> View security report, we can extract this information to PDF/README.MD
+
+
+
+ x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x
+
+
+
+2. DotNet Testing app:
+> Explain the solution
+EXERCISE 1:
+[COPILOT] explain the solution, technologies and possible technical debt, if any. 
+
+EXERCISE 2:
+[COPILOT] what can i do with outdated packages? How to make sure the update procedure is safe?
+
+EXERCISE 2:
+> Organize Program.cs to an old class styling
+[COPILOT] Make this class in a origin Program
+
+EXERCISE 3: Logging:
+[COPILOT] Add basic logging class which displays information to a console
+
+EXERCISE 4: /fix command
+[COPILOT] @workspace /fix
+> Code optimization
+
+EXERCISE 5:
+> Add new folder ./Logic
+[COPILOT] Put this code to a new file
+> May work ... :)
+
+EXERCISE 6: Testing
+> Select LoggerClass
+[COPILOT] /tests using MSTest library
+New window will appear, we can choose the solution, however some fixes will be required
+> Some references will be needed!
+> dotnet test
+[COPILOT] what are the dotnet test paremeters?
+dotnet test --verbosity n [choose param]
+
+EXERCISE 7: Security check
+[COPILOT] Check security level of application, do a review of all OWASP 10 items and validate, preapre final report with PASS / FAIL status. Add scoring and prepare a summary.
+> View security report, we can extract this information to PDF/README.MD
+
+EXERCISE 8: Architecture diagram creation
+[COPILOT] create architecture diagram for @workspace
+> Go to https://mermaidviewer.com/editor/9O8ZN2Ilyv9TZtvSDpBmZ and visalize the graph TD:
+> copy & paste, voila!
