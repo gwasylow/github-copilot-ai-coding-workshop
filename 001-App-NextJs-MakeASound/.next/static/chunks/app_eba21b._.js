@@ -33,44 +33,68 @@ const TRACKS = [
 ];
 const AudioPlayer = ()=>{
     _s();
-    const [isPlaying, setIsPlaying] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [currentTrack, setCurrentTrack] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [audioState, setAudioState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
+        isPlaying: false,
+        currentTrack: null,
+        isLoading: false,
+        error: null
+    });
     const audioRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     // Handle audio events
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AudioPlayer.useEffect": ()=>{
             const audio = audioRef.current;
             if (!audio) return;
-            const handleEnded = {
-                "AudioPlayer.useEffect.handleEnded": ()=>{
-                    setIsPlaying(false);
-                    setCurrentTrack(null);
+            const handlers = {
+                ended: {
+                    "AudioPlayer.useEffect": ()=>setAudioState({
+                            "AudioPlayer.useEffect": (prev)=>({
+                                    ...prev,
+                                    isPlaying: false,
+                                    currentTrack: null
+                                })
+                        }["AudioPlayer.useEffect"])
+                }["AudioPlayer.useEffect"],
+                error: {
+                    "AudioPlayer.useEffect": ()=>setAudioState({
+                            "AudioPlayer.useEffect": (prev)=>({
+                                    ...prev,
+                                    isPlaying: false,
+                                    isLoading: false,
+                                    error: "Playback error"
+                                })
+                        }["AudioPlayer.useEffect"])
+                }["AudioPlayer.useEffect"],
+                loadstart: {
+                    "AudioPlayer.useEffect": ()=>setAudioState({
+                            "AudioPlayer.useEffect": (prev)=>({
+                                    ...prev,
+                                    isLoading: true
+                                })
+                        }["AudioPlayer.useEffect"])
+                }["AudioPlayer.useEffect"],
+                canplay: {
+                    "AudioPlayer.useEffect": ()=>setAudioState({
+                            "AudioPlayer.useEffect": (prev)=>({
+                                    ...prev,
+                                    isLoading: false,
+                                    error: null
+                                })
+                        }["AudioPlayer.useEffect"])
+                }["AudioPlayer.useEffect"]
+            };
+            Object.entries(handlers).forEach({
+                "AudioPlayer.useEffect": ([event, handler])=>{
+                    audio.addEventListener(event, handler);
                 }
-            }["AudioPlayer.useEffect.handleEnded"];
-            const handleError = {
-                "AudioPlayer.useEffect.handleError": ()=>{
-                    setIsPlaying(false);
-                    setIsLoading(false);
-                    console.error('Error playing audio');
-                }
-            }["AudioPlayer.useEffect.handleError"];
-            const handleLoadStart = {
-                "AudioPlayer.useEffect.handleLoadStart": ()=>setIsLoading(true)
-            }["AudioPlayer.useEffect.handleLoadStart"];
-            const handleCanPlay = {
-                "AudioPlayer.useEffect.handleCanPlay": ()=>setIsLoading(false)
-            }["AudioPlayer.useEffect.handleCanPlay"];
-            audio.addEventListener('ended', handleEnded);
-            audio.addEventListener('error', handleError);
-            audio.addEventListener('loadstart', handleLoadStart);
-            audio.addEventListener('canplay', handleCanPlay);
+            }["AudioPlayer.useEffect"]);
             return ({
                 "AudioPlayer.useEffect": ()=>{
-                    audio.removeEventListener('ended', handleEnded);
-                    audio.removeEventListener('error', handleError);
-                    audio.removeEventListener('loadstart', handleLoadStart);
-                    audio.removeEventListener('canplay', handleCanPlay);
+                    Object.entries(handlers).forEach({
+                        "AudioPlayer.useEffect": ([event, handler])=>{
+                            audio.removeEventListener(event, handler);
+                        }
+                    }["AudioPlayer.useEffect"]);
                 }
             })["AudioPlayer.useEffect"];
         }
@@ -79,44 +103,99 @@ const AudioPlayer = ()=>{
         "AudioPlayer.useCallback[playTrack]": async (filename)=>{
             if (!audioRef.current) return;
             const audio = audioRef.current;
-            const isSameTrack = currentTrack === filename;
+            const isSameTrack = audioState.currentTrack === filename;
             try {
                 if (isSameTrack) {
-                    if (isPlaying) {
+                    if (audioState.isPlaying) {
                         audio.pause();
-                        setIsPlaying(false);
+                        setAudioState({
+                            "AudioPlayer.useCallback[playTrack]": (prev)=>({
+                                    ...prev,
+                                    isPlaying: false
+                                })
+                        }["AudioPlayer.useCallback[playTrack]"]);
                     } else {
                         await audio.play();
-                        setIsPlaying(true);
+                        setAudioState({
+                            "AudioPlayer.useCallback[playTrack]": (prev)=>({
+                                    ...prev,
+                                    isPlaying: true
+                                })
+                        }["AudioPlayer.useCallback[playTrack]"]);
                     }
                 } else {
                     audio.src = `/music/${filename}`;
                     await audio.play();
-                    setCurrentTrack(filename);
-                    setIsPlaying(true);
+                    setAudioState({
+                        isPlaying: true,
+                        currentTrack: filename,
+                        isLoading: false,
+                        error: null
+                    });
                 }
             } catch (error) {
-                console.error('Playback failed:', error);
-                setIsPlaying(false);
+                console.error("Playback failed:", error);
+                setAudioState({
+                    "AudioPlayer.useCallback[playTrack]": (prev)=>({
+                            ...prev,
+                            isPlaying: false,
+                            error: "Playback failed"
+                        })
+                }["AudioPlayer.useCallback[playTrack]"]);
             }
         }
     }["AudioPlayer.useCallback[playTrack]"], [
-        currentTrack,
-        isPlaying
+        audioState
     ]);
     const getButtonLabel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "AudioPlayer.useCallback[getButtonLabel]": (track)=>{
-            if (currentTrack === track.filename) {
-                if (isLoading) return "Loading...";
-                return isPlaying ? "Pause" : "Play";
+            if (audioState.currentTrack === track.filename) {
+                if (audioState.isLoading) return "Loading...";
+                return audioState.isPlaying ? "Pause" : "Play";
             }
             return track.label;
         }
     }["AudioPlayer.useCallback[getButtonLabel]"], [
-        currentTrack,
-        isPlaying,
-        isLoading
+        audioState
     ]);
+    const getButtonStyle = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "AudioPlayer.useCallback[getButtonStyle]": (track)=>({
+                ...styles.button,
+                opacity: audioState.isLoading && audioState.currentTrack === track.filename ? 0.7 : 1
+            })
+    }["AudioPlayer.useCallback[getButtonStyle]"], [
+        audioState
+    ]);
+    const styles = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
+        "AudioPlayer.useMemo[styles]": ()=>({
+                container: {
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    gap: "10px",
+                    padding: "20px",
+                    backgroundColor: "#f9f9f9",
+                    borderRadius: "10px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    maxWidth: "400px"
+                },
+                button: {
+                    padding: "10px 20px",
+                    fontSize: "16px",
+                    border: "none",
+                    borderRadius: "5px",
+                    backgroundColor: "#0070f3",
+                    color: "white",
+                    cursor: "pointer",
+                    width: "100%",
+                    transition: "background-color 0.2s ease"
+                },
+                error: {
+                    color: "red",
+                    marginTop: "10px"
+                }
+            })
+    }["AudioPlayer.useMemo[styles]"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         style: styles.container,
         children: [
@@ -125,55 +204,36 @@ const AudioPlayer = ()=>{
                 preload: "auto"
             }, void 0, false, {
                 fileName: "[project]/app/lib/audioplayer.tsx",
-                lineNumber: 93,
+                lineNumber: 132,
                 columnNumber: 7
             }, this),
             TRACKS.map((track)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                     onClick: ()=>playTrack(track.filename),
-                    style: {
-                        ...styles.button,
-                        opacity: isLoading && currentTrack === track.filename ? 0.7 : 1
-                    },
-                    disabled: isLoading && currentTrack === track.filename,
+                    style: getButtonStyle(track),
+                    disabled: audioState.isLoading && audioState.currentTrack === track.filename,
                     children: getButtonLabel(track)
                 }, track.id, false, {
                     fileName: "[project]/app/lib/audioplayer.tsx",
-                    lineNumber: 95,
+                    lineNumber: 134,
                     columnNumber: 9
-                }, this))
+                }, this)),
+            audioState.error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$5_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: styles.error,
+                children: audioState.error
+            }, void 0, false, {
+                fileName: "[project]/app/lib/audioplayer.tsx",
+                lineNumber: 143,
+                columnNumber: 28
+            }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/lib/audioplayer.tsx",
-        lineNumber: 92,
+        lineNumber: 131,
         columnNumber: 5
     }, this);
 };
-_s(AudioPlayer, "w1+4op6lckUhCDdCpZw+GsKRPCg=");
+_s(AudioPlayer, "+SOLGKP90IoRCMLPmTnzdAUibmI=");
 _c = AudioPlayer;
-const styles = {
-    container: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "10px",
-        padding: "20px",
-        backgroundColor: "#f9f9f9",
-        borderRadius: "10px",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        maxWidth: "400px"
-    },
-    button: {
-        padding: "10px 20px",
-        fontSize: "16px",
-        border: "none",
-        borderRadius: "5px",
-        backgroundColor: "#0070f3",
-        color: "white",
-        cursor: "pointer",
-        width: "100%",
-        transition: "background-color 0.2s ease"
-    }
-};
 const __TURBOPACK__default__export__ = AudioPlayer;
 var _c;
 __turbopack_refresh__.register(_c, "AudioPlayer");

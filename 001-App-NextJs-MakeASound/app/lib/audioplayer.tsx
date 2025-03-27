@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useCallback, useEffect, CSSProperties } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo, CSSProperties } from "react";
 
 //This component has been created for further optimizations using COPILOT
 
@@ -16,9 +16,12 @@ const TRACKS: Track[] = [
 ];
 
 const AudioPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [audioState, setAudioState] = useState({
+    isPlaying: false,
+    currentTrack: null as string | null,
+    isLoading: false,
+    error: null as string | null,
+  });
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Handle audio events
@@ -26,67 +29,103 @@ const AudioPlayer = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const handleEnded = () => {
-      setIsPlaying(false);
-      setCurrentTrack(null);
+    const handlers = {
+      ended: () => setAudioState(prev => ({ ...prev, isPlaying: false, currentTrack: null })),
+      error: () => setAudioState(prev => ({ ...prev, isPlaying: false, isLoading: false, error: "Playback error" })),
+      loadstart: () => setAudioState(prev => ({ ...prev, isLoading: true })),
+      canplay: () => setAudioState(prev => ({ ...prev, isLoading: false, error: null }))
     };
 
-    const handleError = () => {
-      setIsPlaying(false);
-      setIsLoading(false);
-      console.error('Error playing audio');
-    };
-
-    const handleLoadStart = () => setIsLoading(true);
-    const handleCanPlay = () => setIsLoading(false);
-
-    audio.addEventListener('ended', handleEnded);
-    audio.addEventListener('error', handleError);
-    audio.addEventListener('loadstart', handleLoadStart);
-    audio.addEventListener('canplay', handleCanPlay);
+    Object.entries(handlers).forEach(([event, handler]) => {
+      audio.addEventListener(event, handler);
+    });
 
     return () => {
-      audio.removeEventListener('ended', handleEnded);
-      audio.removeEventListener('error', handleError);
-      audio.removeEventListener('loadstart', handleLoadStart);
-      audio.removeEventListener('canplay', handleCanPlay);
+      Object.entries(handlers).forEach(([event, handler]) => {
+        audio.removeEventListener(event, handler);
+      });
     };
   }, []);
+  const playTrack = useCallback(
+    async (filename: string) => {
+      if (!audioRef.current) return;
 
-  const playTrack = useCallback(async (filename: string) => {
-    if (!audioRef.current) return;
+      const audio = audioRef.current;
+      const isSameTrack = audioState.currentTrack === filename;
 
-    const audio = audioRef.current;
-    const isSameTrack = currentTrack === filename;
-
-    try {
-      if (isSameTrack) {
-        if (isPlaying) {
-          audio.pause();
-          setIsPlaying(false);
+      try {
+        if (isSameTrack) {
+          if (audioState.isPlaying) {
+            audio.pause();
+            setAudioState((prev) => ({ ...prev, isPlaying: false }));
+          } else {
+            await audio.play();
+            setAudioState((prev) => ({ ...prev, isPlaying: true }));
+          }
         } else {
+          audio.src = `/music/${filename}`;
           await audio.play();
-          setIsPlaying(true);
+          setAudioState({ isPlaying: true, currentTrack: filename, isLoading: false, error: null });
         }
-      } else {
-        audio.src = `/music/${filename}`;
-        await audio.play();
-        setCurrentTrack(filename);
-        setIsPlaying(true);
+      } catch (error) {
+        console.error("Playback failed:", error);
+        setAudioState((prev) => ({ ...prev, isPlaying: false, error: "Playback failed" }));
       }
-    } catch (error) {
-      console.error('Playback failed:', error);
-      setIsPlaying(false);
-    }
-  }, [currentTrack, isPlaying]);
+    },
+    [audioState]
+  );
 
-  const getButtonLabel = useCallback((track: Track) => {
-    if (currentTrack === track.filename) {
-      if (isLoading) return "Loading...";
-      return isPlaying ? "Pause" : "Play";
-    }
-    return track.label;
-  }, [currentTrack, isPlaying, isLoading]);
+  const getButtonLabel = useCallback(
+    (track: Track) => {
+      if (audioState.currentTrack === track.filename) {
+        if (audioState.isLoading) return "Loading...";
+        return audioState.isPlaying ? "Pause" : "Play";
+      }
+      return track.label;
+    },
+    [audioState]
+  );
+
+  const getButtonStyle = useCallback(
+    (track: Track) => ({
+      ...styles.button,
+      opacity: audioState.isLoading && audioState.currentTrack === track.filename ? 0.7 : 1,
+    }),
+    [audioState]
+  );
+
+  const styles = useMemo(
+    () =>
+      ({
+        container: {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+          padding: "20px",
+          backgroundColor: "#f9f9f9",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+          maxWidth: "400px",
+        },
+        button: {
+          padding: "10px 20px",
+          fontSize: "16px",
+          border: "none",
+          borderRadius: "5px",
+          backgroundColor: "#0070f3",
+          color: "white",
+          cursor: "pointer",
+          width: "100%",
+          transition: "background-color 0.2s ease",
+        },
+        error: {
+          color: "red",
+          marginTop: "10px",
+        },
+      } as Record<string, CSSProperties>),
+    []
+  );
 
   return (
     <div style={styles.container}>
@@ -95,42 +134,15 @@ const AudioPlayer = () => {
         <button
           key={track.id}
           onClick={() => playTrack(track.filename)}
-          style={{
-            ...styles.button,
-            opacity: isLoading && currentTrack === track.filename ? 0.7 : 1,
-          }}
-          disabled={isLoading && currentTrack === track.filename}
+          style={getButtonStyle(track)}
+          disabled={audioState.isLoading && audioState.currentTrack === track.filename}
         >
           {getButtonLabel(track)}
         </button>
       ))}
+      {audioState.error && <div style={styles.error}>{audioState.error}</div>}
     </div>
   );
-};
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "10px",
-    padding: "20px",
-    backgroundColor: "#f9f9f9",
-    borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    maxWidth: "400px",
-  },
-  button: {
-    padding: "10px 20px",
-    fontSize: "16px",
-    border: "none",
-    borderRadius: "5px",
-    backgroundColor: "#0070f3",
-    color: "white",
-    cursor: "pointer",
-    width: "100%",
-    transition: "background-color 0.2s ease",
-  },
 };
 
 export default AudioPlayer;
