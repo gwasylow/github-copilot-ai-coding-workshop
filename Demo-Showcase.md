@@ -1,5 +1,10 @@
 # Demo showcase:
 
+Setting up a trial of GitHub Enterprise Cloud
+https://docs.github.com/en/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud
+> You do not need to provide a payment method to start a trial. If you want to use Copilot Business during the trial, you need to provide a credit card. You won't be charged for using Copilot Business during the trial.
+
+
 
 ## 1. Make a Sound App:
 EXERCISE 1:
